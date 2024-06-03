@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Image, Link ,Flex, Text} from '@chakra-ui/react'
+import { Box, Image, Link ,Flex, Text,Heading} from '@chakra-ui/react'
 import { useRecoilState } from 'recoil'
 import templateAtom from '../Atoms/templateAtom'
 import { useNavigate } from 'react-router-dom'
@@ -11,9 +11,9 @@ function SelectTemplate() {
         navigate('/editor/details')
     }
   return (
-    <Box justifyContent={'center'} marginTop={'40px'}>
-        <Text fontSize={'lg'} fontFamily={'bold'}>Select Your Template:</Text>
-        <Flex justifyContent={'center'} marginTop={'10px'}>
+    <Box justifyContent={'center'} marginTop={'40px'} marginLeft={10}>
+        <Heading fontFamily={'bold'} textColor={'#7469B6'}>Select Your Template:</Heading>
+        <Flex justifyContent={'center'} marginTop={'20px'}>
         <Box borderWidth={'1px'} borderColor={'orange'}>
         <Link onClick={()=>handleClick('template1')} >
             <Image width={'300px'} height={'400px'} src='https://res.cloudinary.com/dyylkrsak/image/upload/v1714379272/Screenshot_2024-04-27_200630_l0enaf.png' />

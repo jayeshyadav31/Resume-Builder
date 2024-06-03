@@ -77,7 +77,7 @@ function LoginPage() {
   };
   return (
     <Flex align="center" justify="center" textColor="black">
-      <Stack py={12} px={6} spacing={8} mx="auto" maxW="lg">
+      <Stack bgColor={'gray.200'} py={6} px={6} spacing={8} mx="auto" maxW="lg" borderColor={'gray'} borderWidth={'2px'} borderRadius={'8px'}>
         <Stack align="center">
           <Heading textAlign="center" size="xl"> Login</Heading>
         </Stack>
@@ -112,7 +112,7 @@ function LoginPage() {
                     onClick={() => setShowPassword((show) => !show)}
                     _hover={{ backgroundColor: 'gray.800' }}
                   >
-                    {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                    {showPassword ? <ViewIcon color={'whitesmoke'} /> : <ViewOffIcon color={'whitesmoke'} />}
                   </Button>
                 </InputRightElement>
               </InputGroup>

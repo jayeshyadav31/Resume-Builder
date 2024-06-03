@@ -30,8 +30,14 @@ function ResumePage() {
     },[])
     const handleDownloadPDF = () => {
         const input = document.getElementById('pdf-content');
-    
+        const options = {
+            filename: 'my-document.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+        };
         html2pdf()
+          .set(options)
           .from(input)
           .save('react-page.pdf');
       };

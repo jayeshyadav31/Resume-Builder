@@ -1,8 +1,9 @@
 import React from 'react';
-import { Flex, Box, Heading, VStack, Text } from '@chakra-ui/react';
+import { Flex, Box, Heading, VStack, Text, Stack, HStack } from '@chakra-ui/react';
 import { px } from 'framer-motion';
 
 function Template1({ name, job, phone, address, city, state, zipcode, email, linkedin, experience, education,skills,projects,summary }) {
+
   return (
     <Flex alignItems="center" justifyContent="center" marginTop={'20px'}overflow={'hidden'}>
       <VStack width="700px" alignItems={'start'} overflow={'hidden'}>
@@ -20,27 +21,28 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
               </Heading>
               <Text>{job ? job : 'Human Resource Manager'}</Text>
             </VStack>
-            <VStack width={350} padding="8px" spacing="0.5px" textAlign={'end'}>
-              <Text>
+            <VStack width={350} padding="8px" spacing="0.5px" textAlign={'end'} alignItems={'end'}>
+              <Text fontSize={'0.8rem'}>
                 {address ? address : 'Tdi lake Grove'},{city ? city : 'Sonipat'},
                 {state ? state : 'haryana'},{zipcode ? zipcode : '123001'} 
               </Text>
-              <Text>
+              <Text fontSize={'0.8rem'}>
                 {email ? email : 'yjayesh60@gmail.com'} | {phone ? phone : '7056156463'} </Text> 
-              <Text>{linkedin ? linkedin : 'https://github.com/jayeshyadav31'}</Text>
+              <Text fontSize={'0.8rem'}>{linkedin ? linkedin : 'https://github.com/jayeshyadav31'}</Text>
             </VStack>
           </Flex>
         </Box>
         <Flex alignContent={'flex-start'}>
-        {summary?<Text marginLeft={'20px'} dangerouslySetInnerHTML={{ __html: summary }} />:<Text marginLeft={'20px'}>
-          Human resources generalist with 8 years of experience in HR, including hiring and terminating, disciplining employees and helping department managers improve employee performance. Worked with labor unions to negotiate compensation packages for workers. Organized new hire training initiatives as well as ongoing training to adhere to workplace safety standards. Worked with OSHA to ensure that all safety regulations are followed.</Text>}
+        {summary?<Text marginLeft={'20px'}  dangerouslySetInnerHTML={{ __html: summary }} />:<Text maxW={'680px'} marginLeft={'20px'}>
+          Human resources generalist with 8 years of experience in HR, including hiring and terminating, disciplining employees and helping department managers improve employee performance.
+           Worked with labor unions to negotiate compensation packages for workers. Organized new hire training initiatives as well as ongoing training to adhere to workplace safety standards. Worked with OSHA to ensure that all safety regulations are followed.</Text>}
           </Flex>     
         {/*Experience Schema*/}
-        <Box>
-          <Flex textColor="orange" marginLeft="10px">
-            <Heading size="md">Professional Experience</Heading>
+        <Flex textColor="orange" marginLeft="10px">
+            <Heading size="md" whiteSpace={'nowrap'}>Professional Experience</Heading>
             <Box marginLeft="50px" marginTop="10px" height="2px" width="500px" backgroundColor="orange" />
-          </Flex>
+        </Flex>
+        <Box>
           <VStack>
             {experience
               ? experience.map((exp, index) => (
@@ -57,7 +59,7 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
                   </Box>
                 </Flex>
                 <VStack align="start" marginTop="10px">
-                <Text fontSize="md" maxW={'650px'} dangerouslySetInnerHTML={{ __html: exp.workSummary }} />
+                <Text fontSize="md" marginLeft={'20px'} maxW={'650px'} dangerouslySetInnerHTML={{ __html: exp.workSummary }} />
                 </VStack>
               </Box>
                 ))
@@ -110,7 +112,7 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
                     <Text fontSize={'smaller'} marginRight={'10px'}>{edu.startDate}  {edu && edu.endDate ? '- '+ edu.endDate:edu.startDate?"Present":''}</Text>
                   </Box>
                     </Flex>                
-                    <VStack align="start" marginTop="10px" textAlign={'start'}>
+                    <VStack align="start" marginTop="10px" textAlign={'start'} marginLeft={'20px'}>
                     <Text fontSize="md" maxW={'650px'} dangerouslySetInnerHTML={{ __html: edu.description }} />
                   </VStack>
                   </Box>
@@ -139,12 +141,14 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
             <Heading size="md">Skills</Heading>
             <Box marginLeft="50px" marginTop="10px" height="2px" width="660px" backgroundColor="orange" />
           </Flex>
-          <VStack textAlign={'start'} >
+          <VStack textAlign={'start'}>
             {skills
               ? skills.map((skill, index) => (
-                  <Flex key={index} marginLeft="10px" width={'700px'} >
-                  {skill &&  <Box marginTop={2.5}  marginRight={'2px'}width={'4px'} height={'4px'} borderRadius={'full'} bgColor={'black'}/> }
-                    <Text>{skill}</Text>
+                  <Flex alignItems={'baseline'} key={index} marginLeft="20px" width={'720px'} >
+                  {/* {skill &&  <Box marginTop={2.5}  marginRight={'2px'} width={'3px'} height={'3px'} borderRadius={'full'} 
+                  bgColor={'black'}/> }
+                    <Text>{skill}</Text> */}
+                   {skill!=''  && <ul><li><Text>{skill}</Text></li></ul>}
                   </Flex>
                 ))
               : (
@@ -155,21 +159,21 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
           </VStack>
         </Box>
          {/* Projects Section */}
-         <Box marginTop={'4px'}>
+         <Box marginTop={'4px'} paddingBottom={20} paddingTop={5}>
           <Flex textColor="orange" marginLeft="10px">
             <Heading size="md">Projects</Heading>
             <Box marginLeft="50px" marginTop="10px" height="2px" width="650px" backgroundColor="orange" />
           </Flex>
-          <VStack justifyContent={'start'} textAlign={'start'}>
+          <VStack textAlign={'start'}>
             {projects
               ? projects.map((project, index) => (
-                  <Box key={index} marginTop={'10px'} w={'700px'}>
-                    <Heading fontSize="sm">{project.projectName}</Heading>
+                  <Box key={index} marginTop={'10px'} width={'750px'}>
+                    <Heading fontSize="md">{project.projectName}</Heading>
                     <Text fontSize="md" maxW={'650px'} dangerouslySetInnerHTML={{ __html: project.description }} />
                   </Box>
                 ))
               : (
-                <Flex padding="8px" marginTop="10px" marginRight="640px" justifyContent={'start'}>
+                <Flex padding="8px" marginTop="10px" marginRight="600px" justifyContent={'start'}>
                   <Text>No projects provided</Text>
                 </Flex>
               )}

@@ -15,15 +15,15 @@ function Template2({ name, job, phone, address, city, state, zipcode, email, lin
             </Heading>
             <Text fontSize={'md'} textColor={'gray.400'}>{job ? job : 'Human Resource Manager'}</Text>
             </VStack>
-            <Text fontSize={'0.7em'} marginTop={'5px'} textAlign={'end'}>
+            <Text fontSize={'0.8em'} marginTop={'5px'} textAlign={'end'}>
               {address ? address : 'Tdi lake Grove'}</Text>
-              <Text fontSize={'0.7em'}>{city ? city : 'Sonipat'},
+              <Text fontSize={'0.8em'}>{city ? city : 'Sonipat'},
               {state ? state : 'haryana'},{zipcode ? zipcode : '123001'} 
             </Text>
-            <Text fontSize={'0.7em'}>{phone ? phone : '7056156463'}</Text>
-            <Text fontSize={'0.7em'}>
+            <Text fontSize={'0.8em'}>{phone ? phone : '7056156463'}</Text>
+            <Text fontSize={'0.8em'}>
               {email ? email : 'yjayesh60@gmail.com'} </Text>
-            <Text fontSize={'0.7em'}> {linkedin ? linkedin : 'https://github.com/jayeshyadav31'}
+            <Text fontSize={'0.8em'}> {linkedin ? linkedin : 'https://github.com/jayeshyadav31'}
             </Text>
           </VStack>
         <Flex alignContent={'flex-start'} alignSelf={'baseline'} width={'335px'}>

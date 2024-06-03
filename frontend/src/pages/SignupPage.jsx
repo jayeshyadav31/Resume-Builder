@@ -110,8 +110,9 @@ function SignupPage() {
 
     return (
         <Flex align={"center"} justify={"center"} textColor={"black"}>
-            <Stack py={12} px={6} spacing={8} mx={"auto"} maxW={"lg"}>
-                <Stack align={"center"}>
+            <Stack py={6} px={6} bgColor={'gray.200'} borderRadius={8}
+            spacing={8}width={300} borderWidth={2}  borderColor={'gray'} mx={"auto"} maxW={"lg"}>
+                <Stack align={"center"} >
                     <Heading textAlign={"center"} size={"xl"}> Sign up</Heading>
                 </Stack>
                 <Box>
