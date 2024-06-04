@@ -2,32 +2,32 @@ import React from 'react';
 import { Flex, Box, Heading, VStack, Text, HStack } from '@chakra-ui/react';
 
 function Template2({ name, job, phone, address, city, state, zipcode, email, linkedin, experience, education,skills,
-  projects,summary }) {
- console.log(experience);
+  projects,summary,fontStyle }) {
+//  console.log(experience);
   return (
     <Flex alignItems="center" justifyContent="center" marginTop={'20px'} >
     <VStack width="700px" overflow={'hidden'}>
       <HStack bgColor={'#FFF2E1'} padding={'20px'} width={'700px'} borderRadius={'8px'} justifyContent={'space-evenly'}>
           <VStack padding="8px" align="end" justifyContent={'space-evenly'} marginLeft="10px" >
             <VStack>
-            <Heading size="lg" textColor={'#F7418F'}>
+            <Heading size="lg" fontFamily={fontStyle} textColor={'#F7418F'}>
               {name ? name : 'Alex Carry'}
             </Heading>
-            <Text fontSize={'md'} textColor={'gray.400'}>{job ? job : 'Human Resource Manager'}</Text>
+            <Text fontSize={'md'} fontFamily={fontStyle} textColor={'gray.400'}>{job ? job : 'Human Resource Manager'}</Text>
             </VStack>
-            <Text fontSize={'0.8em'} marginTop={'5px'} textAlign={'end'}>
+            <Text fontSize={'xs'} marginTop={'5px'} fontFamily={fontStyle} textAlign={'end'}>
               {address ? address : 'Tdi lake Grove'}</Text>
-              <Text fontSize={'0.8em'}>{city ? city : 'Sonipat'},
+              <Text fontSize={'xs'} fontFamily={fontStyle}>{city ? city : 'Sonipat'},
               {state ? state : 'haryana'},{zipcode ? zipcode : '123001'} 
             </Text>
-            <Text fontSize={'0.8em'}>{phone ? phone : '7056156463'}</Text>
-            <Text fontSize={'0.8em'}>
+            <Text fontSize={'xs'} fontFamily={fontStyle}>{phone ? phone : '7056156463'}</Text>
+            <Text fontSize={'xs'} fontFamily={fontStyle}>
               {email ? email : 'yjayesh60@gmail.com'} </Text>
-            <Text fontSize={'0.8em'}> {linkedin ? linkedin : 'https://github.com/jayeshyadav31'}
+            <Text fontSize={'xs'} fontFamily={fontStyle}> {linkedin ? linkedin : 'https://github.com/jayeshyadav31'}
             </Text>
           </VStack>
         <Flex alignContent={'flex-start'} alignSelf={'baseline'} width={'335px'}>
-        {summary?<Text marginLeft={'20px'} dangerouslySetInnerHTML={{ __html: summary }} maxW={300}></Text>:<Text marginLeft={'20px'}>
+        {summary?<Text marginLeft={'20px'} fontFamily={fontStyle} dangerouslySetInnerHTML={{ __html: summary }} maxW={300}></Text>:<Text marginLeft={'20px'}>
           Human resources generalist with 8 years of experience in HR, including hiring and terminating, disciplining employees and helping department managers improve employee performance. Worked with labor unions to negotiate compensation packages for workers. Organized new hire training initiatives as well as ongoing training to adhere to workplace safety standards. Worked with OSHA to ensure that all safety regulations are followed.</Text>}
           </Flex>     
           </HStack>
@@ -41,17 +41,17 @@ function Template2({ name, job, phone, address, city, state, zipcode, email, lin
                 <Box key={index} padding="8px" marginTop="10px" marginLeft="10px" width={'700px'}>
                   <Flex justifyContent="space-between">
                     <Box>
-                      <Heading fontSize="sm">
+                      <Heading fontSize="sm" fontFamily={fontStyle}>
                         {exp.company?exp.company:''}{exp.location&&exp.company?','+exp.location:exp.location}
                       </Heading>
-                      <Heading fontSize="sm">{exp.title}</Heading>
+                      <Heading fontSize="sm" fontFamily={fontStyle}>{exp.title}</Heading>
                     </Box>
-                    <Box marginRight={'10px'}>
-                      <Text fontSize={'sm'}>{exp.startDate}  {exp && exp.endDate ? '- '+ exp.endDate:exp.startDate?"Present":''}</Text>
+                    <Box marginRight={'10px'} >
+                      <Text fontSize={'sm'} fontFamily={fontStyle}>{exp.startDate}  {exp && exp.endDate ? '- '+ exp.endDate:exp.startDate?"Present":''}</Text>
                     </Box>
                   </Flex>
                   <VStack align="start" marginTop="10px">
-                  <Text fontSize="md" maxW={'650px'} dangerouslySetInnerHTML={{ __html: exp.workSummary }} />
+                  <Text fontSize="md" fontFamily={fontStyle} maxW={'650px'} dangerouslySetInnerHTML={{ __html: exp.workSummary }} />
                   </VStack>
                 </Box>
               ))
@@ -95,14 +95,14 @@ function Template2({ name, job, phone, address, city, state, zipcode, email, lin
                 <Box key={index} padding="8px" marginTop="10px" marginLeft="10px" width={'700px'}>
                   <Flex justifyContent="space-between">
                     <Box textAlign={'start'} >
-                      <Heading fontSize="sm">{edu.school?edu.school+' ,':''} {edu.location}</Heading>
-                      <Heading fontSize="sm">{edu.degree?edu.degree+' in ':""}{edu.fieldOfStudy}</Heading>
+                      <Heading fontSize="sm" fontFamily={fontStyle}>{edu.school?edu.school+' ,':''} {edu.location}</Heading>
+                      <Heading fontSize="sm" fontFamily={fontStyle}>{edu.degree?edu.degree+' in ':""}{edu.fieldOfStudy}</Heading>
                     </Box>
                     <Box marginRight={'10px'}>
-                      <Text fontSize={'sm'}>{edu.startDate}  {edu && edu.endDate ? '- '+ edu.endDate:edu.startDate?"Present":''}</Text>
+                      <Text fontSize={'sm'} fontFamily={fontStyle}>{edu.startDate}  {edu && edu.endDate ? '- '+ edu.endDate:edu.startDate?"Present":''}</Text>
                     </Box>
                   </Flex>
-                  <Text marginTop={'10px'} fontSize="md" maxW={'650px'} dangerouslySetInnerHTML={{ __html:edu.description  }} ></Text>
+                  <Text marginTop={'10px'} fontFamily={fontStyle} fontSize="md" maxW={'650px'} dangerouslySetInnerHTML={{ __html:edu.description  }} ></Text>
                 </Box>
               ))
             : (
@@ -133,7 +133,7 @@ function Template2({ name, job, phone, address, city, state, zipcode, email, lin
               <Flex key={index}  marginLeft="32px" width={'700px'}>
               {/* {skill &&   */}
                {/* <Box marginTop={2.5} marginBottom={2.5} marginRight={'2px'} width={'3px'} height={'3px'} borderRadius={'full'} bgColor={'black'}/> } */}
-              <ul><li><Text>{skill}</Text></li></ul>
+               <Text fontSize={'md'} fontFamily={fontStyle}>&#8226;  {skill}</Text>
             </Flex>
               ))
             : (
@@ -151,8 +151,8 @@ function Template2({ name, job, phone, address, city, state, zipcode, email, lin
           {projects
             ? projects.map((project, index) => (
                 <Box key={index} padding="8px" marginTop="10px" marginLeft="10px" w={700}>
-                  <Heading size="sm">{project.projectName}</Heading>
-                  <Text fontSize="md" marginLeft={'4px'} maxW={'650px'} 
+                  <Heading size="sm" fontFamily={fontStyle}>{project.projectName}</Heading>
+                  <Text fontSize="md" marginLeft={'4px'} fontFamily={fontStyle} maxW={'650px'} 
                   dangerouslySetInnerHTML={{ __html: project.description }} />
                 </Box>
               ))

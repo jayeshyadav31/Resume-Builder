@@ -29,14 +29,13 @@ function UserPage() {
                 }
             } catch (error) {
                 console.error('Error fetching resumes:', error);
-                // You might want to handle errors here, such as displaying an error message
             }
         };
         fetchResumes(); // Call fetchResumes function when component mounts
     },[])
     const [data, setData] = useState({
         name: "",
-        email: "",
+        email: user.email,
         subject: "",
         message: "",
       });
@@ -142,7 +141,6 @@ function UserPage() {
                   borderColor={"black"}
                   onChange={(e) => setData({ ...data, name: e.target.value })}
                   _hover={{borderColor:'gray.900'}}
-                  value={user.displayName}
                 />
               </FormControl>
               <FormControl isRequired mb={4} marginLeft={"10px"} borderColor={"darkgray"}>
@@ -152,7 +150,7 @@ function UserPage() {
                   borderColor={"black"}
                   name="email"
                   placeholder="Email"
-                  onChange={(e) => setData({ ...data, email: e.target.value })}
+                  onChange={(e) => {setData({ ...data, email: e.target.value })}}
                   value={user.email}
                   _hover={{borderColor:'gray.900'}}
                 />
