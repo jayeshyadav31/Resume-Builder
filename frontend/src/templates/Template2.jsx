@@ -2,15 +2,15 @@ import React from 'react';
 import { Flex, Box, Heading, VStack, Text, HStack } from '@chakra-ui/react';
 
 function Template2({ name, job, phone, address, city, state, zipcode, email, linkedin, experience, education,skills,
-  projects,summary,fontStyle }) {
-//  console.log(experience);
+  projects,summary,fontStyle ,color}) {
+    
   return (
-    <Flex alignItems="center" justifyContent="center" marginTop={'20px'} >
+    <Flex alignItems="center"  marginTop={'20px'} >
     <VStack width="700px" overflow={'hidden'}>
-      <HStack bgColor={'#FFF2E1'} padding={'20px'} width={'700px'} borderRadius={'8px'} justifyContent={'space-evenly'}>
-          <VStack padding="8px" align="end" justifyContent={'space-evenly'} marginLeft="10px" >
-            <VStack>
-            <Heading size="lg" fontFamily={fontStyle} textColor={'#F7418F'}>
+      <HStack bgColor={color?color:"#F7418F"} padding={'20px'} width={'700px'} borderRadius={'8px'} justifyContent={'space-evenly'}>
+          <VStack padding="8px" justifyContent={'end'} alignItems={'end'}  marginLeft="10px" >
+            <VStack textAlign={'end'} alignItems={'end'}>
+            <Heading size="lg" fontFamily={fontStyle} textColor='black'>
               {name ? name : 'Alex Carry'}
             </Heading>
             <Text fontSize={'md'} fontFamily={fontStyle} textColor={'gray.400'}>{job ? job : 'Human Resource Manager'}</Text>
@@ -33,8 +33,8 @@ function Template2({ name, job, phone, address, city, state, zipcode, email, lin
           </HStack>
       {/*Experience Schema*/}
       <Box textAlign={'start'} marginLeft={'10px'}>
-        <Box marginTop="10px" height="2px" width="700px" backgroundColor="#F7418F" />
-        <Heading size="md" textColor={'#F7418F'} marginTop={'4px'}>Professional Experience</Heading>
+        <Box marginTop="10px" height="2px" width="700px" backgroundColor={color?color:'#F7418F'} />
+        <Heading size="md" textColor={color?color:'#F7418F'} marginTop={'4px'}>Professional Experience</Heading>
         <VStack>
           {experience
             ? experience.map((exp, index) => (
@@ -87,8 +87,8 @@ function Template2({ name, job, phone, address, city, state, zipcode, email, lin
       </Box>
       {/*Education Schema */}
       <Box textAlign={'start'} marginLeft={'10px'} marginTop={'4px'} >
-        <Box marginTop="10px" height="2px" width="700px" backgroundColor="#F7418F" />
-        <Heading size="md" textColor={'#F7418F'} marginTop={'2px'}>Education</Heading>
+        <Box marginTop="10px" height="2px" width="700px" backgroundColor={color?color:'#F7418F'} />
+        <Heading size="md" textColor={color?color:'#F7418F'} marginTop={'2px'}>Education</Heading>
         <VStack>
           {education
             ? education.map((edu, index) => (
@@ -125,8 +125,8 @@ function Template2({ name, job, phone, address, city, state, zipcode, email, lin
 
       {/*Skills section*/ }
       <Box textAlign={'start'} marginLeft={'10px'} marginTop={'4px'}>
-        <Box marginTop="10px" height="2px" width="700px" backgroundColor="#F7418F" />
-        <Heading size="md" textColor={'#F7418F'} marginTop={'2px'} marginLeft={3}>Skills</Heading>
+        <Box marginTop="10px" height="2px" width="700px" backgroundColor={color?color:'#F7418F'} />
+        <Heading size="md" textColor={color?color:'#F7418F'} marginTop={'2px'} marginLeft={3}>Skills</Heading>
         <VStack justifyContent={'start'}>
           {skills
             ? skills.map((skill, index) => (
@@ -145,8 +145,8 @@ function Template2({ name, job, phone, address, city, state, zipcode, email, lin
       </Box>
        {/* Projects Section */}
        <Box textAlign={'start'} marginLeft={'10px'} marginTop={'4px'}>
-        <Box marginTop="10px" height="2px" width="700px" backgroundColor="#F7418F" />
-        <Heading size="md" textColor={'#F7418F'} marginTop={'2px'}>Projects</Heading>
+        <Box marginTop="10px" height="2px" width="700px" backgroundColor={color?color:'#F7418F'} />
+        <Heading size="md" textColor={color?color:'#F7418F'} marginTop={'2px'}>Projects</Heading>
         <VStack justifyContent={'start'} marginBottom={'15px'}>
           {projects
             ? projects.map((project, index) => (

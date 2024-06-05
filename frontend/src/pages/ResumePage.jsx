@@ -55,11 +55,11 @@ function ResumePage() {
         setShowPicker(!showPicker);
       };
   return (
-    <HStack alignItems={'start'} gap={'200px'} marginTop={'50px'}>
+    <HStack alignItems={'start'} gap={showPicker?'128px':'200px'} marginTop={'50px'}>
         {/* <Flex justifyContent={'end'}> */}
         <VStack alignItems={'end'}>
             <Flex alignItems={'center'}>
-                <Text>Font:</Text>
+                <Text mr={4}>Font:</Text>
                 <Select placeholder='Select option' value={fontStyle} width={'100px'} onChange={handleFontChange}>
                     <option value="sans-serif">Sans-serif</option>
                     <option value="serif">Serif</option>

@@ -61,7 +61,7 @@ const saveResume=async()=>{
     if (response.ok) {
       const data = await response.json();
       console.log('Resume saved successfully:', data);
-      navigate('/userpage')
+      // navigate('/userpage')
   } else {
       console.error('Failed to save resume:', response);
   }
@@ -72,11 +72,11 @@ const saveResume=async()=>{
   return (
     <Flex justifyContent={'center'} width={'full'}>
       <VStack>
-      <Flex justifyContent={'center'} textAlign={'center'} width={'full'} >
-        <Flex>
-          <Button _hover={{bg:'#50C4ED'}} onClick={handleDownloadPDF}>Download</Button>
-          <Menu>
-            <MenuButton as={Button} _hover={{bg:'#50C4ED'}}>
+      <Text>Note: You can change the Font Style and Color at My Account section resumes by opening it.</Text>
+      <Flex justifyContent={'end'} marginRight={'190px'} marginTop={10} textAlign={'center'} width={'full'} >
+        <Flex gap={1} >
+          <Menu >
+            <MenuButton as={Button} bg={'#3ABEF9'} _hover={{bg:'#50C4ED'}} >
               Edit Section
             </MenuButton>
             <MenuList>
@@ -88,7 +88,8 @@ const saveResume=async()=>{
               <MenuItem onClick={()=>{navigate('/editor/summary')}}>Summary</MenuItem>
             </MenuList>
           </Menu>
-          <Button _hover={{bg:'#50C4ED'}} onClick={saveResume}>Save & Next</Button>
+          <Button bg={'#3ABEF9'} _hover={{bg:'#50C4ED'}}  onClick={handleDownloadPDF}>Download</Button>
+          <Button bg={'#3ABEF9'} _hover={{bg:'#50C4ED'}} onClick={saveResume}>Save & Next</Button>
         </Flex>
       </Flex>
       <Box >
@@ -104,8 +105,9 @@ const saveResume=async()=>{
         <Link onClick={()=>handleClick('template2')} >
             <Image width={'200px'} height={'300px'} src='https://res.cloudinary.com/dyylkrsak/image/upload/v1714379300/getPdfThumbnail_agsgoz.jpg' />
         </Link>
+
         </Box>
-        <Box width={'2px'} borderColor={'pink.400'} borderWidth={'2px'} height={'400px'} />
+        <Box width={'2px'} borderColor={'gray.400'} borderWidth={'2px'} height={'400px'} />
         </Flex>
       <Flex id='pdf-content'>
       {

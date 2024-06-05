@@ -1,8 +1,6 @@
 import React from 'react'
 import LogoutButton from '../components/LogoutButton.jsx'
-import { Box, Button, Flex, HStack, Link } from '@chakra-ui/react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFile } from '@fortawesome/free-solid-svg-icons';
+import { Box, Button, Flex, HStack, Link ,Image} from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil';
 import userAtom from '../Atoms/userAtom.js';
@@ -14,7 +12,8 @@ function Headers() {
         <Box borderRadius={'6px'} padding={'15px'} marginTop={'20px'} width={'full'}>
             <Flex justifyContent={'space-between'} alignItems={'center'}>
                 <Link onClick={()=>{navigate('/')}} fontSize={'md'}  color={'#8644A2'} padding={'8px'} >
-                    <FontAwesomeIcon icon={faFile}/> Resume Builder
+                    Resume Builder
+                    {/* <Image width={'20px'} height={'20px'} src='https://res.cloudinary.com/dyylkrsak/image/upload/v1717610388/Resume_builder_zbtjry.png'/> Resume Builder */}
                 </Link>
                 {user &&
                 <HStack marginRight={'20px'} spacing={'15px'}>
