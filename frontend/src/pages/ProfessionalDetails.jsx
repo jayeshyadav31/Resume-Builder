@@ -10,6 +10,7 @@ import Template1 from '../templates/Template1';
 import Template2 from '../templates/Template2';
 import detailsAtom from '../Atoms/detailsAtom';
 import templateAtom from '../Atoms/templateAtom';
+import BeforeUnloadHandler from '../hooks/BeforeUnloadHandler';
 function ProfessionalDetails() {
     const [inputs, setInputs] = useState([{
         title: "",
@@ -59,6 +60,7 @@ const handleSkip=()=>{
   console.log("skip this page");
   navigate('/editor/education')
 }
+BeforeUnloadHandler()
     return (
         <HStack>
         <Flex width={'100%'} minWidth={'600px'} alignSelf={'baseline'} marginTop={20}>

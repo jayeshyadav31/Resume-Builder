@@ -2,13 +2,13 @@ import React from 'react';
 import { Flex, Box, Heading, VStack, Text, Stack, HStack } from '@chakra-ui/react';
 import { px } from 'framer-motion';
 
-function Template1({ name, job, phone, address, city, state, zipcode, email, linkedin, experience, education, skills, projects, summary, fontStyle }) {
-  //  console.log(fontStyle);
+function Template1({ name, job, phone, address, city, state, zipcode, email, linkedin, experience, education, 
+  skills, projects, summary, fontStyle,color }) {
   return (
     <Flex alignItems="center" justifyContent="center" marginTop={'20px'} overflow={'hidden'}>
       <VStack width="700px" alignItems={'start'} overflow={'hidden'}>
         <Box
-          backgroundColor="orange"
+          backgroundColor={color?color:"orange"}
           width="700px"
           borderTopLeftRadius="32px"
           borderBottomLeftRadius="32px"
@@ -38,9 +38,9 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
             Worked with labor unions to negotiate compensation packages for workers. Organized new hire training initiatives as well as ongoing training to adhere to workplace safety standards. Worked with OSHA to ensure that all safety regulations are followed.</Text>}
         </Flex>
         {/*Experience Schema*/}
-        <Flex textColor="orange" marginLeft="10px">
+        <Flex textColor={color?color:"orange"} marginLeft="10px">
           <Heading size="md" whiteSpace={'nowrap'}>Professional Experience</Heading>
-          <Box marginLeft="50px" marginTop="10px" height="2px" width="500px" backgroundColor="orange" />
+          <Box marginLeft="50px" marginTop="10px" height="2px" width="500px" backgroundColor={color?color:"orange"} />
         </Flex>
         <Box>
           <VStack>
@@ -95,9 +95,9 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
         </Box>
         {/*Education Schema */}
         <Box marginTop={'4px'}>
-          <Flex textColor="orange" marginLeft="10px">
+          <Flex textColor={color?color:"orange"} marginLeft="10px">
             <Heading size="md">Education</Heading>
-            <Box marginLeft="50px" marginTop="10px" height="2px" width="550px" backgroundColor="orange" />
+            <Box marginLeft="50px" marginTop="10px" height="2px" width="550px" backgroundColor={color?color:"orange"} />
           </Flex>
           <VStack textAlign={'start'}>
             {education
@@ -109,7 +109,7 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
                       <Heading size="sm" fontFamily={fontStyle}>{edu.degree ? edu.degree + 'in' : ''}  {edu.fieldOfStudy}</Heading>
                     </Box>
                     <Box>
-                      <Text fontFamily={fontStyle} marginRight={'10px'}>{edu.startDate}  {edu && edu.endDate ? '- ' + edu.endDate : edu.startDate ? "Present" : ''}</Text>
+                      <Text fontFamily={fontStyle} fontSize={'sm'} marginRight={'10px'}>{edu.startDate}  {edu && edu.endDate ? '- ' + edu.endDate : edu.startDate ? "Present" : ''}</Text>
                     </Box>
                   </Flex>
                   <VStack align="start" marginTop="10px" textAlign={'start'} marginLeft={'20px'}>
@@ -137,9 +137,9 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
 
         {/*Skills section*/ }
         <Box marginTop={'4px'}>
-          <Flex textColor="orange" marginLeft="10px" textAlign={'start'}>
+          <Flex textColor={color?color:"orange"} marginLeft="10px" textAlign={'start'}>
             <Heading size="md">Skills</Heading>
-            <Box marginLeft="50px" marginTop="10px" height="2px" width="660px" backgroundColor="orange" />
+            <Box marginLeft="50px" marginTop="10px" height="2px" width="650px" backgroundColor={color?color:"orange"} />
           </Flex>
           <VStack textAlign={'start'}>
             {skills
@@ -148,7 +148,7 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
                   {/* {skill &&  <Box marginTop={2.5}  marginRight={'2px'} width={'3px'} height={'3px'} borderRadius={'full'} 
                   bgColor={'black'}/> }
                     <Text>{skill}</Text> */}
-                  <Text fontSize={'md'} fontFamily={fontStyle}>&#8226;  {skill}</Text>
+                  <Text fontSize={'md'} fontFamily={fontStyle}>•  {skill}</Text>
                 </Flex>
               ))
               : (
@@ -160,9 +160,9 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
         </Box>
         {/* Projects Section */}
         <Box marginTop={'4px'} paddingBottom={20} paddingTop={5}>
-          <Flex textColor="orange" marginLeft="10px">
+          <Flex textColor={color?color:"orange"} marginLeft="10px">
             <Heading size="md">Projects</Heading>
-            <Box marginLeft="50px" marginTop="10px" height="2px" width="650px" backgroundColor="orange" />
+            <Box marginLeft="50px" marginTop="10px" height="2px" width="650px" backgroundColor={color?color:"orange"} />
           </Flex>
           <VStack textAlign={'start'}>
             {projects

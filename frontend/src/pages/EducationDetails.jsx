@@ -10,6 +10,7 @@ import professionalAtom from '../Atoms/professionalAtom';
 import Template1 from '../templates/Template1';
 import Template2 from '../templates/Template2';
 import templateAtom from '../Atoms/templateAtom';
+import BeforeUnloadHandler from '../hooks/BeforeUnloadHandler';
 function EducationDetails() {
     const [inputs, setInputs] = useState([
         {
@@ -66,7 +67,7 @@ function EducationDetails() {
         console.log("skip this page");
         navigate('/editor/skills')
     };
-
+    BeforeUnloadHandler()
     return (
         <HStack>
         <Flex width={'100%'} minWidth={'600px'} alignSelf={'baseline'}  marginTop={'30px'}>
@@ -195,7 +196,7 @@ function EducationDetails() {
                                                 'undo redo | formatselect | bold italic | \
                                                 alignleft aligncenter alignright | \
                                                 bullist numlist outdent indent | help',
-                                            content_css: '.my-custom-tinymce-editor { border-color: red; }'
+                                            content_css: '.my-custom-tinymce-editor { border-color: red; }',
                                         }}
                                         onEditorChange={(content) => handleEditorChange(content, index)}
                                     />

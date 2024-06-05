@@ -1,4 +1,4 @@
-import {Select, Box, Button, Flex, Text } from '@chakra-ui/react';
+import {Select, Box, Button, Flex, Text, VStack, HStack } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Template1 from '../templates/Template1';
@@ -55,11 +55,12 @@ function ResumePage() {
         setShowPicker(!showPicker);
       };
   return (
-    <Box>
-        <Flex justifyContent={'end'}>
+    <HStack alignItems={'start'} gap={'200px'} marginTop={'50px'}>
+        {/* <Flex justifyContent={'end'}> */}
+        <VStack alignItems={'end'}>
             <Flex alignItems={'center'}>
                 <Text>Font:</Text>
-                <Select placeholder='Select option' value={fontStyle} onChange={handleFontChange}>
+                <Select placeholder='Select option' value={fontStyle} width={'100px'} onChange={handleFontChange}>
                     <option value="sans-serif">Sans-serif</option>
                     <option value="serif">Serif</option>
                     <option value="monospace">Monospace</option>
@@ -76,19 +77,22 @@ function ResumePage() {
                     <option value="'Roboto', sans-serif">Roboto</option>
                 </Select>
             </Flex>
-            <Flex marginRight={2} >
-                {!showPicker &&  <Button bgColor={color?color:"gray.600"} _hover={{bg:'gray.500'}} onClick={togglePicker}>Pick Color</Button> }
+            <Flex>
+                {!showPicker &&  <Button bgColor={color?color:"#E72929"} width={'150px'} _hover={{bg:'#FF204E'}} onClick={togglePicker}>Pick Color</Button> }
                 {/* Display the color picker only if showPicker is true */}
                 {showPicker && (
                     <Box>
                     <ChromePicker color={color} onChange={handleColorChange}/>
-                    <Button onClick={togglePicker} bgColor='#3ABEF9' _hover={{bg:'#3572EF'}}>Set Color</Button>
+                    <Button  onClick={togglePicker} backgroundColor={color?color:'#E72929'} _hover={{backgroundColor:'#FF204E'}} >Set Color</Button>
                     </Box>
                  )}
             </Flex>
-            <Button backgroundColor={'#E72929'} _hover={{backgroundColor:'#FF204E'}} 
-             onClick={handleDownloadPDF} marginRight={280}>Download PDF</Button>
-        </Flex>
+            <Flex>
+                <Button backgroundColor={'#E72929'} _hover={{backgroundColor:'#FF204E'}} width={'150px'}  
+                    onClick={handleDownloadPDF}>Download PDF</Button>
+            </Flex>
+             </VStack>
+        {/* </Flex> */}
         <Flex justifyContent={'center'} id='pdf-content'>
         { resume &&
           resume?.template==='template1'?<Template1 name={resume?.name}
@@ -106,6 +110,7 @@ function ResumePage() {
           projects={resume?.projects}
           summary={resume?.summary}
           fontStyle={fontStyle}
+          color={color}
           />:<Template2 name={resume?.name}
           email={resume?.email}
           linkedin={resume?.linkedin}
@@ -121,10 +126,11 @@ function ResumePage() {
           projects={resume?.projects}
           summary={resume?.summary}
           fontStyle={fontStyle}
+          color={color}
           />
         }
        </Flex>
-    </Box>
+    </HStack>
   )
 }
 

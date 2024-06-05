@@ -9,6 +9,7 @@ import Template2 from '../templates/Template2';
 import detailsAtom from '../Atoms/detailsAtom';
 import professionalAtom from '../Atoms/professionalAtom';
 import educationAtom from '../Atoms/educationAtom';
+import BeforeUnloadHandler from '../hooks/BeforeUnloadHandler';
 function Skills() {
     const [inputs, setInputs] = useState([{ skillName: "" }]);
     const [count, setCount] = useState(1);
@@ -49,6 +50,7 @@ function Skills() {
             setCount(count-1)
         }
     };
+  BeforeUnloadHandler()
     return (
         <HStack>
         <Flex width={'100%'} minWidth={'600px'} alignSelf={'baseline'} marginTop={'20px'}>

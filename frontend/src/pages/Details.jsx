@@ -7,6 +7,7 @@ import { useAsyncValue, useNavigate } from 'react-router-dom'
 import Template1 from '../templates/Template1'
 import Template2 from '../templates/Template2'
 import templateAtom from '../Atoms/templateAtom'
+import BeforeUnloadHandler from '../hooks/BeforeUnloadHandler'
 function Details() {
   const storedData = localStorage.getItem('template');
   const template = JSON.parse(storedData);
@@ -36,20 +37,21 @@ function Details() {
         setDetails(input)
         navigate('/editor/work-history')
     }
-    useEffect(() => {
-      const handleBeforeUnload = (event) => {
-          event.preventDefault();
-          event.returnValue = ''; // This line is necessary for Chrome
-          return ''; // This line is necessary for other browsers
+  //   useEffect(() => {
+  //     const handleBeforeUnload = (event) => {
+  //         event.preventDefault();
+  //         event.returnValue = ''; // This line is necessary for Chrome
+  //         return ''; // This line is necessary for other browsers
           
-      };
+  //     };
 
-      window.addEventListener('beforeunload', handleBeforeUnload);
+  //     window.addEventListener('beforeunload', handleBeforeUnload);
 
-      return () => {
-          window.removeEventListener('beforeunload', handleBeforeUnload);
-      };
-  }, []);
+  //     return () => {
+  //         window.removeEventListener('beforeunload', handleBeforeUnload);
+  //     };
+  // }, []);
+  BeforeUnloadHandler()
   return (
     <HStack justifyContent={'space-between'}>
     <Flex justifyContent={'center'} alignSelf={'baseline'} marginTop={'70px'}>

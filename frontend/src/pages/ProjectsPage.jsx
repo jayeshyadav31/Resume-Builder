@@ -11,6 +11,7 @@ import educationAtom from '../Atoms/educationAtom';
 import skillAtom from '../Atoms/skillAtom';
 import detailsAtom from '../Atoms/detailsAtom';
 import professionalAtom from '../Atoms/professionalAtom';
+import BeforeUnloadHandler from '../hooks/BeforeUnloadHandler';
 function ProjectsPage() {
     const [inputs, setInputs] = useState([
         {
@@ -63,7 +64,7 @@ function ProjectsPage() {
         navigate('/editor/summary')
         console.log(projects)
     };
-
+    BeforeUnloadHandler()
     return (
         <HStack>
         <Flex width={'100%'} minWidth={'600px'} alignSelf={'baseline'}>
