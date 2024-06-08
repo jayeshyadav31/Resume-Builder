@@ -169,7 +169,7 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
               ? projects.map((project, index) => (
                 <Box key={index} marginTop={'10px'} width={'750px'}>
                   <Heading fontSize="md" fontFamily={fontStyle}>{project.projectName}</Heading>
-                  <Text fontSize="md" maxW={'650px'} fontFamily={fontStyle} dangerouslySetInnerHTML={{ __html: project.description }} />
+                  <Text fontSize="md" maxW={'650px'} fontFamily={fontStyle} dangerouslySetInnerHTML={{ __html: project.projectDescription }} />
                 </Box>
               ))
               : (

@@ -3,7 +3,7 @@ const projectsAtom=atom({
     key:'projectsAtom',
     default:[{
         projectName:'',
-        description:'',
+        projectDescription:'',
     }]
 })
 export default projectsAtom

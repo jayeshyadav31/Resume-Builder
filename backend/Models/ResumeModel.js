@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 const educationSchema = mongoose.Schema({
     school: {
         type: String,
-        required: true
     },
     location: String,
     startDate:String,
@@ -14,8 +13,7 @@ const educationSchema = mongoose.Schema({
 
 const experienceSchema = mongoose.Schema({
     title: {
-        type: String,
-        required: true
+        type: String
     },
     company: String,
     location: String,
@@ -30,7 +28,6 @@ const skillSchema=mongoose.Schema({
 const projectSchema = mongoose.Schema({
     projectName: {
         type: String,
-        required: true
     },
     projectDescription:String
 });

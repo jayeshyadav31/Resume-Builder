@@ -51,6 +51,7 @@ const saveResume=async()=>{
     projects:projects
   }
   try {
+    console.log(projects.projectDescription);
     const response=await fetch('/api/resume/create',{
       method:"POST",
       headers:{
@@ -61,7 +62,7 @@ const saveResume=async()=>{
     if (response.ok) {
       const data = await response.json();
       console.log('Resume saved successfully:', data);
-      // navigate('/userpage')
+      navigate('/userpage')
   } else {
       console.error('Failed to save resume:', response);
   }

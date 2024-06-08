@@ -16,7 +16,7 @@ function ProjectsPage() {
     const [inputs, setInputs] = useState([
         {
             projectName:"",
-            description: ""
+            projectDescription: ""
         }
     ]);
     const [count, setCount] = useState(1);
@@ -39,7 +39,7 @@ function ProjectsPage() {
     };
     const handleEditorChange = (content, index) => {
         const newInputs = [...inputs];
-        newInputs[index] = { ...newInputs[index], description: content };
+        newInputs[index] = { ...newInputs[index], projectDescription: content };
         setInputs(newInputs);
         setShow(true)
     };
