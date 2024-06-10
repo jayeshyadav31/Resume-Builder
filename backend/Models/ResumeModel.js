@@ -39,6 +39,9 @@ const resumeSchema = mongoose.Schema({
         ref:"User",
         required:true
     },
+    fileName:{
+        type:String,
+    },
     template:{
         type:String,
     },

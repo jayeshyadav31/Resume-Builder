@@ -1,4 +1,4 @@
-import { Box, Button, Flex, HStack, Image, Link, Menu, MenuButton, MenuItem, MenuList, Select, Text, VStack, useSafeLayoutEffect } from '@chakra-ui/react'
+import { Box, Button, Flex, HStack, Image, Input, Link, Menu, MenuButton, MenuItem, MenuList, Select, Text, VStack, useSafeLayoutEffect } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import summaryAtom from '../Atoms/summaryAtom'
@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 import Template1 from '../templates/Template1'
 import Template2 from '../templates/Template2'
 function SuccessPage() {
+  const [fileName,setFileName]=useState("");
   const summary=useRecoilValue(summaryAtom)
   const details=useRecoilValue(detailsAtom)
   const experience=useRecoilValue(professionalAtom)
@@ -48,10 +49,10 @@ const saveResume=async()=>{
     email:details.email,
     linkedin:details.linkedin,
     template:template,
-    projects:projects
+    projects:projects,
+    fileName:fileName,
   }
   try {
-    console.log(projects.projectDescription);
     const response=await fetch('/api/resume/create',{
       method:"POST",
       headers:{
@@ -89,8 +90,12 @@ const saveResume=async()=>{
               <MenuItem onClick={()=>{navigate('/editor/summary')}}>Summary</MenuItem>
             </MenuList>
           </Menu>
-          <Button bg={'#3ABEF9'} _hover={{bg:'#50C4ED'}}  onClick={handleDownloadPDF}>Download</Button>
-          <Button bg={'#3ABEF9'} _hover={{bg:'#50C4ED'}} onClick={saveResume}>Save & Next</Button>
+          <Button bg={'#3ABEF9'} _hover={{bg:'#50C4ED'}} onClick={handleDownloadPDF}>Download</Button>
+          <Flex>
+            <Input type='text' placeholder='Enter the file Name to save' borderColor={'gray.700'} 
+            value={fileName} onChange={(e)=>{setFileName(e.target.value)}} />
+            <Button bg={'#3ABEF9'} _hover={{bg:'#50C4ED'}} onClick={saveResume}>Save & Next</Button>
+          </Flex>
         </Flex>
       </Flex>
       <Box >

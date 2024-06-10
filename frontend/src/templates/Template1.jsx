@@ -4,6 +4,7 @@ import { px } from 'framer-motion';
 
 function Template1({ name, job, phone, address, city, state, zipcode, email, linkedin, experience, education, 
   skills, projects, summary, fontStyle,color }) {
+    console.log(name);
   return (
     <Flex alignItems="center" justifyContent="center" marginTop={'20px'} overflow={'hidden'}>
       <VStack width="700px" alignItems={'start'} overflow={'hidden'}>
@@ -17,7 +18,7 @@ function Template1({ name, job, phone, address, city, state, zipcode, email, lin
           <Flex justifyContent="space-between" textColor="whitesmoke">
             <VStack padding="8px" align="start" spacing="2px" marginLeft="10px" justifyContent={'center'}>
               <Heading size="lg" textColor="whitesmoke" fontFamily={fontStyle}>
-                {name ? name : 'Alex Carry'}
+                {name!=' '?name:"Alex Carry"}
               </Heading>
               <Text fontFamily={fontStyle} fontSize={'md'}>{job ? job : 'Human Resource Manager'}</Text>
             </VStack>

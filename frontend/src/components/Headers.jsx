@@ -11,7 +11,7 @@ function Headers() {
     return (
         <Box borderRadius={'6px'} padding={'15px'} marginTop={'20px'} width={'full'}>
             <Flex justifyContent={'space-between'} alignItems={'center'}>
-                <Link onClick={()=>{navigate('/')}} fontSize={'md'}  color={'#8644A2'} padding={'8px'} >
+                <Link onClick={()=>{navigate('/')}} fontSize={'md'}  color={'#8644A2'} fontFamily={'fantasy'} padding={'8px'} >
                     Resume Builder
                     {/* <Image width={'20px'} height={'20px'} src='https://res.cloudinary.com/dyylkrsak/image/upload/v1717610388/Resume_builder_zbtjry.png'/> Resume Builder */}
                 </Link>

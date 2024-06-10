@@ -3,7 +3,7 @@ import User from "../Models/UserModel.js";
 
 const createResume=async(req,res)=>{
     const resumeData = req.body;
-    // console.log(resumeData);
+    console.log(resumeData);
     try {
         const newResume = new Resume({user:req.user._id, ...resumeData})
         console.log(newResume);

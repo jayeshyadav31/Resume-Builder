@@ -13,6 +13,7 @@ import detailsAtom from '../Atoms/detailsAtom';
 import professionalAtom from '../Atoms/professionalAtom';
 import BeforeUnloadHandler from '../hooks/BeforeUnloadHandler';
 function ProjectsPage() {
+    const [projects,setProjects]=useRecoilState(projectsAtom)
     const [inputs, setInputs] = useState([
         {
             projectName:"",
@@ -21,7 +22,6 @@ function ProjectsPage() {
     ]);
     const [count, setCount] = useState(1);
     const [show,setShow]=useState(false)
-    const [projects,setProjects]=useRecoilState(projectsAtom)
     const details=useRecoilValue(detailsAtom)
     const experience=useRecoilValue(professionalAtom)
     const education=useRecoilValue(educationAtom)
