@@ -1,6 +1,5 @@
 import React from 'react';
-import { Flex, Box, Heading, VStack, Text, Stack, HStack } from '@chakra-ui/react';
-import { px } from 'framer-motion';
+import { Flex, Box, Heading, VStack, Text} from '@chakra-ui/react';
 
 function Template1({ name, job, phone, address, city, state, zipcode, email, linkedin, experience, education, 
   skills, projects, summary, fontStyle,color }) {

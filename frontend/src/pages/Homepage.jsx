@@ -3,13 +3,15 @@ import { Heading, HStack, Button, Box, Flex, Link, Image, Text, VStack } from '@
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
-
+import { auth } from '../congif/firebase.js';
 import { useSetRecoilState } from 'recoil';
 import userAtom from '../Atoms/userAtom.js';
 
 function Homepage() {
     const setUser = useSetRecoilState(userAtom);
     const navigate=useNavigate()
+    const user=auth.currentUser
+    // console.log(user);
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -18,7 +20,7 @@ function Homepage() {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 const user = await response.json();
-                console.log(user);
+                // console.log(user);
                 setUser(user);
             } catch (error) {
                 console.error('Error fetching user:', error);

@@ -21,6 +21,7 @@ import SelectTemplate from './pages/SelectTemplate';
 import SuccessPage from './pages/SuccessPage';
 import UserPage from './pages/UserPage';
 import ResumePage from './pages/ResumePage';
+import Account from './pages/Account';
 function App() {
 const authScreen=useRecoilValue(authScreenAtom);
 const user=useRecoilValue(userAtom)
@@ -41,8 +42,8 @@ const user=useRecoilValue(userAtom)
       <Route path='/template2' element={user?<Template2/>:<Navigate to="/" />} />
       <Route path='/templates' element={user?<SelectTemplate/>:<Navigate to="/" />} />
       <Route path='/success' element={user?<SuccessPage/>:<Navigate to="/" />} />
-      <Route path='/userpage' element={user?<UserPage/>:<Navigate to="/" />} />
-      
+      <Route path='/dashboard' element={user?<UserPage/>:<Navigate to="/" />} />
+      <Route path='/account' element={user?<Account/>:<Navigate to="/" />} />
     </Routes>
   </Container>
   )

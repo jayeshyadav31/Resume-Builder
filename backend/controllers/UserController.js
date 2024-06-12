@@ -1,5 +1,32 @@
 import User from '../Models/UserModel.js';
+const updateUser = async (req, res) => {
+    try {
+        const {token ,newEmail, newName } = req.body;
+        const user = await User.findOne({_id:req.user._id });
+        res.cookie("jwt", token, {
+            httpOnly: true,
+            maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days
+            sameSite: "strict",
+        });
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
 
+        if (newEmail) user.email = newEmail;
+        if (newName) user.name = newName;
+
+        const updatedUser = await user.save();
+
+        return res.status(200).json({
+            id: updatedUser._id,
+            email: updatedUser.email,
+            name: updatedUser.name,
+        });
+    } catch (error) {
+        console.error(`Error in updateUser: ${error.message}`);
+        return res.status(500).json({ error: "Failed to update user. Please try again later." });
+    }
+};
 const signupUser = async (req, res) => {
     try {
         console.log("i am inside sign up user");
@@ -83,5 +110,4 @@ const getUserByEmail = async (req, res) => {
         return res.status(500).json({ error: "Failed to fetch user. Please try again later." });
     }
 };
-
-export { signupUser, loginUser, logout, getUserByEmail };
+export { signupUser, loginUser, logout, getUserByEmail ,updateUser};

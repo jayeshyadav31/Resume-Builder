@@ -1,6 +1,6 @@
 import React from 'react'
 import LogoutButton from '../components/LogoutButton.jsx'
-import { Box, Button, Flex, HStack, Link ,Image} from '@chakra-ui/react'
+import { Box, Button, Flex, HStack, Link } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil';
 import userAtom from '../Atoms/userAtom.js';
@@ -9,7 +9,7 @@ function Headers() {
     const navigate = useNavigate();
     const user=useRecoilValue(userAtom)
     return (
-        <Box borderRadius={'6px'} padding={'15px'} marginTop={'20px'} width={'full'}>
+        <Box borderRadius={'6px'} padding={'15px'} marginTop={'20px'} width={'full'} bg={'#FFEAE3'}>
             <Flex justifyContent={'space-between'} alignItems={'center'}>
                 <Link onClick={()=>{navigate('/')}} fontSize={'md'}  color={'#8644A2'} fontFamily={'fantasy'} padding={'8px'} >
                     Resume Builder
@@ -20,9 +20,11 @@ function Headers() {
                     <Link onClick={()=>{navigate('/templates')}} color={'#000000'} _hover={{ color: '#704264' }}>
                         Resume Templates</Link>
                     <Link color={'#000000'} _hover={{ color: '#704264' }}
-                    onClick={()=>{navigate('/userpage')}} >My Account</Link>
+                    onClick={()=>{navigate('/dashboard')}}>Dashboard</Link>
+                    <Link color={'#000000'} _hover={{ color: '#704264' }}
+                    onClick={()=>{navigate('/account')}} >My Account</Link>
                     <Button onClick={()=>{navigate('/templates')}}
-                    color={'#FFAF45'} borderColor={'#FFC94A'} borderWidth={'2px'} borderRadius={'6px'} padding={'5px'} overflow={'hidden'} _hover={{ backgroundColor: '#FFAF45', color: 'white' }}>Build My Resume</Button>
+                    backgroundColor={'#FFAF45'} color='white' borderColor={'#FFC94A'}  borderWidth={'2px'} borderRadius={'6px'} padding={'5px'} overflow={'hidden'} _hover={{ backgroundColor:"#FFC470" }}>Build My Resume</Button>
                     <LogoutButton />
                 </HStack>
 }
