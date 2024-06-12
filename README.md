@@ -29,8 +29,8 @@ Resume Builder is a web application that allows users to create professional res
 - Express
 - MongoDB
 # setup an env file for backend
-  PORT=
-  MONGO_URL=
+    PORT=
+    MONGO_URL=
  after setting up the env
        1. cd/backend
        2. npm start
