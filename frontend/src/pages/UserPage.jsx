@@ -6,9 +6,10 @@ import { SmallAddIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 import useShowToast from '../hooks/useShowToast';
 import Content from '../components/Contact';
+import { getAuth } from 'firebase/auth';
 
 function UserPage() {
-    const user = useRecoilValue(userAtom);
+    const user = getAuth().currentUser
     const [resumes, setResumes] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {

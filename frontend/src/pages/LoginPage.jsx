@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Flex, Heading, Stack, Box, FormControl, FormLabel, Input, Link, Text, InputGroup, InputRightElement, Button } from '@chakra-ui/react';
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons';
-import { signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup } from 'firebase/auth'; // Update import to remove unnecessary imports
+import { signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup, sendPasswordResetEmail, getAuth } from 'firebase/auth'; // Update import to remove unnecessary imports
 import { auth } from '../congif/firebase';
 import { useSetRecoilState ,useRecoilState} from 'recoil';
 import userAtom from '../Atoms/userAtom';
 import authScreenAtom from '../Atoms/authAtom';
 import useShowToast from '../hooks/useShowToast';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,9 +17,11 @@ function LoginPage() {
     email: '',
     password: '',
   });
+  const [forgetPassword,setForgetPassword]=useState(false)
   const showToast=useShowToast()
   const setAuthScreen=useSetRecoilState(authScreenAtom)
   const [user,setUser]=useRecoilState(userAtom)
+  const navigate=useNavigate()
   const sendTokenToBackend = async (user) => {
     try {
       const idToken = await user.getIdToken(); // Get the Firebase ID token
@@ -117,6 +120,7 @@ function LoginPage() {
                 </InputRightElement>
               </InputGroup>
             </FormControl>
+            <Button textColor={'#1679AB'} onClick={()=>{navigate('/reset')}}>Forget Password?</Button>
             <Stack>
               <Button
                 loadingText="Logging In"

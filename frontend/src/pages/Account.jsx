@@ -101,6 +101,20 @@ function Account() {
             // Update display name (if changed)
             if (newDisplayName && newDisplayName !== user.displayName) {
                 await updateProfile(user, { displayName: newDisplayName });
+                const response=await fetch('/api/users/updateUser',{
+                    method:"POST",
+                    headers:{
+                      "Content-Type": "application/json",
+                    },
+                    body:JSON.stringify({name:newDisplayName})
+                  })
+                  const data=await response.json()
+                  console.log(data);
+                  if(response.ok){
+                    localStorage.removeItem("user-threads");
+                    localStorage.setItem("user-threads", JSON.stringify(user));
+                    console.log('user updated in backend successfully');
+                  }
                 showToast("Display name updated successfully!", "success");
             }
 
@@ -133,7 +147,7 @@ function Account() {
                 <Flex width={'600px'} marginBottom={'15px'} justifyContent={'space-between'}>
                     <Heading fontFamily={'cursive'}>My Account</Heading>
                     <Button textColor={'#3ABEF9'} shadow={'revert'} borderColor={'gray.200'} onClick={onOpen}
-                        borderWidth={3} bgColor={'gray.100'} borderRadius={'6px'}>Edit Profile</Button>
+                        borderWidth={3} bgColor={'gray.100'} borderRadius={'6px'} >Edit Profile</Button>
                 </Flex>
                 <Box marginLeft={1} width={600}>
                     <Flex marginBottom={'3px'} fontSize={'lg'}>
@@ -230,6 +244,9 @@ function Account() {
                     </ModalFooter>
                 </ModalContent>
             </Modal>
+            <Flex justifyContent={'center'} width={'full'} bgColor={'gray.300'} position={'fixed'} bottom={'1px'} height={'40px'}>
+                <Text marginTop={'8px'} fontFamily={'cursive'}>@ 2024 RB.com. All right reserved.</Text>
+            </Flex>
         </Flex>
     );
 }

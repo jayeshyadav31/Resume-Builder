@@ -1,22 +1,14 @@
 import User from '../Models/UserModel.js';
 const updateUser = async (req, res) => {
     try {
-        const {token ,newEmail, newName } = req.body;
+        const {name } = req.body;
         const user = await User.findOne({_id:req.user._id });
-        res.cookie("jwt", token, {
-            httpOnly: true,
-            maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days
-            sameSite: "strict",
-        });
         if (!user) {
             return res.status(404).json({ error: "User not found" });
         }
-
-        if (newEmail) user.email = newEmail;
-        if (newName) user.name = newName;
-
+        if (name) user.name = name;
         const updatedUser = await user.save();
-
+        console.log('updateUser',updatedUser);
         return res.status(200).json({
             id: updatedUser._id,
             email: updatedUser.email,

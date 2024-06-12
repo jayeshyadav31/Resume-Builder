@@ -6,5 +6,5 @@ router.post('/signup',signupUser)
 router.post('/login',loginUser)
 router.post('/logout',logout)
 router.get('/getUser',ProtectRoute,getUserByEmail);
-router.put('/updateUser',ProtectRoute,updateUser)
+router.post('/updateUser',ProtectRoute,updateUser)
 export default router;

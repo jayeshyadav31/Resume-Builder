@@ -22,6 +22,7 @@ import SuccessPage from './pages/SuccessPage';
 import UserPage from './pages/UserPage';
 import ResumePage from './pages/ResumePage';
 import Account from './pages/Account';
+import ResetPassword from './pages/ResetPassword';
 function App() {
 const authScreen=useRecoilValue(authScreenAtom);
 const user=useRecoilValue(userAtom)
@@ -44,6 +45,7 @@ const user=useRecoilValue(userAtom)
       <Route path='/success' element={user?<SuccessPage/>:<Navigate to="/" />} />
       <Route path='/dashboard' element={user?<UserPage/>:<Navigate to="/" />} />
       <Route path='/account' element={user?<Account/>:<Navigate to="/" />} />
+      <Route path='/reset' element={<ResetPassword/>} />
     </Routes>
   </Container>
   )

@@ -9,7 +9,7 @@ function Headers() {
     const navigate = useNavigate();
     const user=useRecoilValue(userAtom)
     return (
-        <Box borderRadius={'6px'} padding={'15px'} marginTop={'20px'} width={'full'} bg={'#FFEAE3'}>
+        <Box borderRadius={'6px'} padding={'10px'} marginTop={'20px'} mb={10} width={'full'} borderColor={'gray.400'} borderWidth={'2px'}>
             <Flex justifyContent={'space-between'} alignItems={'center'}>
                 <Link onClick={()=>{navigate('/')}} fontSize={'md'}  color={'#8644A2'} fontFamily={'fantasy'} padding={'8px'} >
                     Resume Builder

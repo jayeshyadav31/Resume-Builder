@@ -39,7 +39,7 @@ function LogoutButton() {
     };
 
     return (
-        <Button marginLeft={"10px"} p={2} size={"md"} onClick={handleLogout} color={"gray.500"} isLoading={loading}>
+        <Button marginLeft={"10px"} p={2} size={"md"} _hover={{bg:"gray.400"}} onClick={handleLogout} color={"gray.500"} isLoading={loading}>
             <FiLogOut size={20} />
         </Button>
     );

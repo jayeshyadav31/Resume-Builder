@@ -30,7 +30,7 @@ const ProtectRoute = async (req, res, next) => {
     }
 
     const decoded = await admin.auth().verifyIdToken(token);
-    console.log("Decoded token:", decoded);
+    // console.log("Decoded token:", decoded);
     const user = await User.findOne({ email: decoded.email });
 
     if (!user) {
