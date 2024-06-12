@@ -36,13 +36,13 @@ Resume Builder is a web application that allows users to create professional res
        2. npm start
 
 # setup an env file for frontend
-  REACT_APP_API_KEY=
-  REACT_APP_AUTH_DOMAIN=
-  REACT_APP_PROJECT_ID=
-  REACT_APP_STORAGE_BUCKET=
-  REACT_APP_MESSAGING_SENDER_ID=
-  REACT_APP_APP_ID=
-  REACT_APP_MEASUREMENT_ID=
+    REACT_APP_API_KEY=
+    REACT_APP_AUTH_DOMAIN=
+    REACT_APP_PROJECT_ID=
+    REACT_APP_STORAGE_BUCKET=
+    REACT_APP_MESSAGING_SENDER_ID=
+    REACT_APP_APP_ID=
+    REACT_APP_MEASUREMENT_ID=
 # For Frontend
      1. cd/frontend
      2. npm run dev  
